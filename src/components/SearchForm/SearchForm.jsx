@@ -1,7 +1,7 @@
-import { FaSearch } from "react-icons/fa";
-import css from "./SearchForm.module.css";
-import { VscEdit } from "react-icons/vsc";
 import toast, { Toaster } from "react-hot-toast";
+import { FaSearch } from "react-icons/fa";
+import { VscEdit } from "react-icons/vsc";
+import css from "./SearchForm.module.css";
 
 const SearchForm = ({ onSearch }) => {
   const handleSubmit = (e) => {

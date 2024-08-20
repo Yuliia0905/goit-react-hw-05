@@ -1,7 +1,6 @@
-// import { useState } from "react";
 import "./App.css";
 import { lazy, Suspense } from "react";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Loader from "./components/Loader/Loader";
 import Navigation from "./components/Navigation/Navigation";

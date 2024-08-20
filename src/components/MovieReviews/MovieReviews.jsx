@@ -22,9 +22,6 @@ const MovieReviews = () => {
         setError(false);
         const data = await getMovieReviews(movieId);
         setReviews(data);
-        console.log(data);
-
-        console.log(data);
       } catch (err) {
         setError(err.message);
       } finally {

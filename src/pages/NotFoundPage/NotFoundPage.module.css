@@ -1,0 +1,26 @@
+.link {
+  font-size: 30px;
+  padding: 8px;
+  border: 1px solid;
+  border-radius: 8px;
+  color: blueviolet;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.714);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.651);
+  margin-bottom: 15px;
+}

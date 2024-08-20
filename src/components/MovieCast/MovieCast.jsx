@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import Loader from "../Loader/Loader";
 import css from "./MovieCast.module.css";
+import ErrorMessage from "../ErrorMessage/ErrorMassage";
 
 const MovieCast = () => {
   const [casts, setCasts] = useState([]);
@@ -19,7 +20,6 @@ const MovieCast = () => {
         setError(false);
         const data = await getMovieCasts(movieId);
         setCasts(data);
-        console.log(data);
       } catch (err) {
         setError(err.message);
       } finally {

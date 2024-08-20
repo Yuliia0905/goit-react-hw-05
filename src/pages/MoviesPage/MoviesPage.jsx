@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { TbFaceIdError } from "react-icons/tb";
 import toast, { Toaster } from "react-hot-toast";
 import css from "./MoviesPage.module.css";
