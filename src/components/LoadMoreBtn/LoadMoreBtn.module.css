@@ -1,0 +1,17 @@
+.btn {
+  display: block;
+  min-width: 100px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fff;
+  background-color: blueviolet;
+  margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: rgb(83, 26, 136);
+}

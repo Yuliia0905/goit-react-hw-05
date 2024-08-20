@@ -1,0 +1,33 @@
+.link {
+  display: inline-flex;
+  padding: 20px;
+  font-size: 18px;
+
+  text-decoration: none;
+
+  background-color: transparent;
+  color: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.3s;
+}
+
+.active {
+  background-color: black;
+  color: #fff;
+  border: 1px solid rgba(245, 245, 245, 0.37);
+}
+
+.nav {
+  display: flex;
+  background-color: rgba(137, 43, 226, 0.911);
+  gap: 8px;
+  padding-left: 30px;
+}
+
+.logo {
+  padding-top: 10px;
+}
+
+.header {
+  background: rgba(0, 0, 0, 0.9);
+}

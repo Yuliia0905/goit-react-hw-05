@@ -1,0 +1,18 @@
+.img {
+  margin-bottom: 8px;
+}
+
+.list {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.item {
+  flex-basis: calc((100% - 60px) / 5);
+}
+
+.text {
+  text-align: center;
+}

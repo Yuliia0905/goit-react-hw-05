@@ -1,0 +1,14 @@
+.solidLine {
+  border: 0;
+  height: 1px;
+  background-color: white;
+  margin: 20px 0;
+}
+
+.reviewTitle {
+  margin-bottom: 15px;
+}
+
+.text {
+  margin-bottom: 5px;
+}
