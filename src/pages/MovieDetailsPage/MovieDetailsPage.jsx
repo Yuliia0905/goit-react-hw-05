@@ -20,17 +20,17 @@ function MovieDetailsPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const location = useLocation();
-  const backLink = useRef(location.state?.from ?? "/");
+  const backLink = useRef(location?.state ?? "/");
 
   useEffect(() => {
     const fetchMoviesDetails = async () => {
       try {
         setLoading(true);
-        setError(false);
+        setError(null);
         const data = await getMoviesDetails(movieId);
         setMovie(data);
       } catch (err) {
-        setError(err.message);
+        setError(err);
       } finally {
         setLoading(false);
       }
@@ -39,7 +39,7 @@ function MovieDetailsPage() {
     fetchMoviesDetails();
   }, [movieId]);
 
-  if (!movie) return;
+  // if (!movie) return;
 
   const defaultImg =
     "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
@@ -51,46 +51,54 @@ function MovieDetailsPage() {
       </Link>
       {loading && <Loader />}
       {error && <ErrorMessage />}
-      <div className={css.wrapper}>
-        <img
-          className={css.img}
-          src={
-            movie.poster_path
-              ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-              : defaultImg
-          }
-          alt={movie.title}
-        />
+      {movie && (
+        <>
+          <div className={css.wrapper}>
+            <img
+              className={css.img}
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+                  : defaultImg
+              }
+              alt={movie.title}
+            />
 
-        <div className={css.wrapperText}>
-          <h2 className={css.title}>{movie.title}</h2>
-          <p>{movie.overview}</p>
-          <hr className={css.solidLine} />
-          <h3>Genres:</h3>
-          <p>{movie.genres.map((genre) => genre.name).join(", ")}</p>
-          <h3>Release date:</h3>
-          <p>{movie.release_date}</p>
-          <h3>Rate:</h3>
-          <p>{movie.vote_average}</p>
-        </div>
-      </div>
+            <div className={css.wrapperText}>
+              <h2 className={css.title}>{movie.title}</h2>
+              <p>{movie.overview}</p>
+              <hr className={css.solidLine} />
+              <h3>Genres:</h3>
+              <p>{movie.genres.map((genre) => genre.name).join(", ")}</p>
+              <h3>Release date:</h3>
+              <p>{movie.release_date}</p>
+              <h3>Rate:</h3>
+              <p>{movie.vote_average}</p>
+            </div>
+          </div>
 
-      <nav className={css.nav}>
-        <NavLink
-          className={({ isActive }) => clsx(css.link, isActive && css.active)}
-          to="cast"
-        >
-          Cast
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => clsx(css.link, isActive && css.active)}
-          to="reviews"
-        >
-          Reviwes
-        </NavLink>
-      </nav>
+          <nav className={css.nav}>
+            <NavLink
+              className={({ isActive }) =>
+                clsx(css.link, isActive && css.active)
+              }
+              to="cast"
+            >
+              Cast
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                clsx(css.link, isActive && css.active)
+              }
+              to="reviews"
+            >
+              Reviwes
+            </NavLink>
+          </nav>
 
-      <Outlet />
+          <Outlet />
+        </>
+      )}
     </div>
   );
 }

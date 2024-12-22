@@ -8,18 +8,18 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMassage";
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true);
-    setError(false);
+    setError(null);
 
     const fetchPopularMovies = async () => {
       try {
         const data = await getPopularMovies();
         setMovies(data.results);
       } catch (err) {
-        setError(err.message);
+        setError(err);
       } finally {
         setLoading(false);
       }
@@ -33,7 +33,7 @@ const HomePage = () => {
       {loading && <Loader />}
       {error && <ErrorMessage />}
       <h1 className={css.title}>Trending Movies</h1>
-      <MovieList movies={movies} />
+      {movies.length > 0 && <MovieList movies={movies} />}
     </div>
   );
 };

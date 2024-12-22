@@ -14,7 +14,7 @@ const SearchForm = ({ onSearch }) => {
       });
       return;
     }
-    onSearch(query, 1);
+    onSearch(query);
     form.reset();
   };
   return (
